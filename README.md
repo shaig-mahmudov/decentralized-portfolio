@@ -1,67 +1,82 @@
-## Hi there 👋! I'm Shaig
+# 👑 Decentralized Portfolio
 
-![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=F7F7F7&width=700&lines=Backend+Engineer;Java+21+%7C+Spring+Boot+%7C+Spring+Security;Building+Secure+and+Scalable+Backend+Systems)
+A premium, state-of-the-art developer portfolio website custom-built for **Shaig Mahmudov**. The frontend features a luxury dark-gray and gold design system with ambient glows, scroll telemetry, and an interactive backend load testing simulator. Optimized for distributed networks and fully prepared for deployment on **IPFS (Fleek / Pinata)**.
 
-### 👨‍💻 About Me
+---
 
-I am an aspiring **Backend Engineer** focused on building clean, secure, and scalable backend applications using **Java**, **Spring Boot**, and modern backend technologies.
+## 🎨 Design System & Aesthetic
+- **Ambient Lighting**: Fixed radial gold glows and cursor-reactive mouse glow tracking to create a premium visual experience.
+- **Typography**: Editorial heading typography using *Cinzel* paired with *Outfit* for modern, clean body text.
+- **Glassmorphic Layout**: Frosted glass panels with glowing gold border transitions on hover states.
+- **Visual telemetry**: Circular profile picture frames with nested gold gradient borders.
 
-My main interests are REST API development, authentication and authorization systems, database design, Docker-based development environments, and clean backend architecture.
+---
 
-- 🔭 **Current Focus:** Java Backend Development with Spring Boot
-- 🌱 **Currently Improving:** Data Structures & Algorithms, Spring Security, Docker, and System Design
-- 🔐 **Interested in:** JWT Authentication, RBAC, API Security, and Backend Architecture
-- 🧩 **Core Areas:** REST APIs, Databases, ORM, Authentication, Authorization, and Clean Code
-- 💼 **Open to:** Internship and Junior Backend Engineer opportunities
-- 🎯 **Goal:** Building production-ready backend systems with strong engineering fundamentals
+## 🚀 Key Features
 
-![Profile Views](https://komarev.com/ghpvc/?username=shaig-mahmudov&color=blueviolet)
+### 1. Interactive Load Test Simulator
+Inspired by backend systems resilience projects like `wreckr` and `autoreq`, the simulator features a control console to:
+- Select endpoint destinations and slide request rates (RPS).
+- Inject traffic spikes (2.5x load multiplier) and force rate limits (HTTP 429).
+- View live performance charts (plotted using Recharts) mapping request latency and success rate.
+- Scroll through a live-running console logger outputting system telemetry data.
 
-### 🛠️ Tech Stack
+### 2. Featured Projects Grid
+Cards detailing top GitHub repositories (`rivet-api`, `wreckr`, `autoreq`, `betelgeuse-core`, `orion-platform`, `m42-infra`), complete with:
+- Live language statistics and color badges.
+- Star counts and direct source repository links.
+- Organization labels highlighting contributions to **M42 Labs**.
 
-#### Core Backend
-![Java](https://img.shields.io/badge/Java%2021-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
-![Spring MVC](https://img.shields.io/badge/Spring%20MVC-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
-![REST API](https://img.shields.io/badge/REST%20API-02569B?style=for-the-badge)
-![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white)
+### 3. Integrated Resume and Contact Portal
+- Floating input fields with dynamic submit response states.
+- Custom connections to GitHub and verified LinkedIn posts.
+- Direct CV downloading served directly from IPFS static assets.
 
-#### Persistence & ORM
-![Spring Data JPA](https://img.shields.io/badge/Spring%20Data%20JPA-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
-![JPA](https://img.shields.io/badge/JPA-59666C?style=for-the-badge)
-![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=hibernate&logoColor=white)
-![JPQL](https://img.shields.io/badge/JPQL-336791?style=for-the-badge)
+---
 
-#### Security
-![Spring Security](https://img.shields.io/badge/Spring%20Security-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
-![RBAC](https://img.shields.io/badge/RBAC-4B5563?style=for-the-badge)
-![Authentication](https://img.shields.io/badge/Authentication-1F2937?style=for-the-badge)
-![Authorization](https://img.shields.io/badge/Authorization-374151?style=for-the-badge)
+## 🛠️ Technology Stack
+- **Core Framework**: React (Vite & TypeScript)
+- **Styling**: Tailwind CSS v4 (native stylesheet compilation)
+- **Telemetry Graph**: Recharts (fully responsive SVG canvas charts)
+- **Vector Icons**: Lucide React
+- **CI/CD Deployment**: GitHub Actions & IPFS Pinata Pinning
 
-#### Databases
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-![Microsoft SQL Server](https://img.shields.io/badge/Microsoft%20SQL%20Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)
+---
 
-#### DevOps & Tools
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Docker Compose](https://img.shields.io/badge/Docker%20Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-![Git](https://img.shields.io/badge/Git-F05033?style=for-the-badge&logo=git&logoColor=white)
-![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
-![Swagger](https://img.shields.io/badge/Swagger/OpenAPI-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
+## 💻 Local Development Setup
 
-#### Additional Experience
-![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)
-![.NET](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
-![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-512BD4?style=for-the-badge&logo=.net&logoColor=white)
-![Entity Framework Core](https://img.shields.io/badge/Entity%20Framework%20Core-512BD4?style=for-the-badge&logo=.net&logoColor=white)
+### 1. Clone the repository
+```bash
+git clone https://github.com/shaig-mahmudov/decentralized-portfolio.git
+cd decentralized-portfolio
+```
 
-### 🐍 Contribution Snake
+### 2. Install dependencies
+```bash
+npm install
+```
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/shaig-mahmudov/shaig-mahmudov/output/github-contribution-grid-snake-dark.svg" alt="Snake animation" />
-</p>
+### 3. Run development server
+```bash
+npm run dev
+```
 
-LinkedIn: https://www.linkedin.com/posts/sheetal-verma-889241395_androiddeveloper-appdeveloper-mobileappdevelopment-ugcPost-7472655476371902466-5Qrf/?utm_source=share&utm_medium=member_android&rcm=ACoAAGEeaykBoQsrohITG6caxnn7SBGZoTaC9yo
+### 4. Build for production (compiling static files for IPFS deployment)
+```bash
+npm run build
+```
+The compiled output will be generated inside the `dist/` directory.
+
+---
+
+## 🌐 CI/CD & IPFS Deployment
+
+This repository includes a GitHub Actions CI/CD workflow to compile the application and pin the static output to **IPFS via Pinata** on every push to the `main` branch.
+
+### Deployment Configuration
+The workflow checks out the repository, installs project dependencies, triggers `npm run build`, and pins the generated `dist/` folder.
+
+#### Secrets required in GitHub Settings:
+To enable automated deployments, configure the following secrets in your GitHub repository:
+- `PINATA_API_KEY`: Your Pinata API authentication key.
+- `PINATA_SECRET_API_KEY`: Your Pinata API secret key.
