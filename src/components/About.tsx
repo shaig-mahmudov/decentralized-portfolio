@@ -85,7 +85,7 @@ export default function About() {
 
             {/* CV Download CTA */}
             <a
-              href="/shaig-mahmudov-cv.pdf"
+              href="./shaig-mahmudov-cv.pdf"
               download="Shaig-Mahmudov-CV.pdf"
               className="inline-flex items-center gap-3 px-6 py-3 rounded-xl border border-gold bg-gold/5 text-gold font-medium text-sm transition-all duration-300 hover:bg-gold hover:text-dark-bg shadow-[0_0_15px_rgba(212,175,55,0.05)] hover:shadow-[0_0_25px_rgba(212,175,55,0.2)]"
             >
