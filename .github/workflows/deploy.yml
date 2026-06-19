@@ -91,7 +91,7 @@ jobs:
             // Append each file with its relative path prefixed by pinName (groups files under a single folder CID on IPFS)
             for (const file of files) {
               const relativePath = path.relative(distPath, file).replace(/\\/g, '/');
-              const ipfsPath = `${pinName}/${relativePath}`;
+              const ipfsPath = relativePath;
               const content = fs.readFileSync(file);
               const blob = new Blob([content]);
               formData.append('file', blob, ipfsPath);
