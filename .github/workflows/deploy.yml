@@ -29,7 +29,7 @@ jobs:
         env:
           PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }}
           PINATA_SECRET_API_KEY: ${{ secrets.PINATA_SECRET_API_KEY }}
-          PIN_NAME: 'Decentralized-Portfolio-${{ github.sha }}'
+          PIN_NAME: 'Decentralized-Portfolio'
         run: |
           cat << 'EOF' > pinata-deploy.cjs
           const fs = require('fs');
@@ -38,20 +38,19 @@ jobs:
           async function run() {
             const apiKey = process.env.PINATA_API_KEY;
             const apiSecret = process.env.PINATA_SECRET_API_KEY;
-            const pinName = process.env.PIN_NAME || `Decentralized-Portfolio-${Date.now()}`;
+            const pinName = process.env.PIN_NAME || 'Decentralized-Portfolio';
 
             if (!apiKey || !apiSecret) {
-              console.error('Error: PINATA_API_KEY or PINATA_SECRET_API_KEY is not defined in GitHub secrets.');
+              console.error('Error: PINATA_API_KEY or PINATA_SECRET_API_KEY is not defined.');
               process.exit(1);
             }
 
             const distPath = path.resolve('dist');
             if (!fs.existsSync(distPath)) {
-              console.error('Error: dist/ directory does not exist. Ensure build step ran successfully.');
+              console.error('Error: dist/ directory does not exist.');
               process.exit(1);
             }
 
-            // Recursively retrieve all file paths in the directory
             function getFilesRecursive(dir) {
               let results = [];
               const list = fs.readdirSync(dir);
@@ -69,29 +68,19 @@ jobs:
 
             const files = getFilesRecursive(distPath);
             if (files.length === 0) {
-              console.error('Error: No files found in dist/ directory.');
+              console.error('Error: No files found in dist/.');
               process.exit(1);
             }
 
-            console.log(`Found ${files.length} files to upload.`);
-
-            // Construct multipart form-data natively using Node 20's global FormData/Blob
             const formData = new FormData();
 
-            // Set Pinata pin metadata (displays in Pinata dashboard)
-            formData.append('pinataMetadata', JSON.stringify({
-              name: pinName,
-            }));
+            formData.append('pinataMetadata', JSON.stringify({ name: pinName }));
+            formData.append('pinataOptions', JSON.stringify({ cidVersion: 0 }));
 
-            // Set Pinata pin options (CID Version 0 is default and highly compatible)
-            formData.append('pinataOptions', JSON.stringify({
-              cidVersion: 0,
-            }));
-
-            // Append each file with its relative path prefixed by pinName (groups files under a single folder CID on IPFS)
+            // Pinata-nın qovluq strukturu üçün 'portfolio/' sabit prefiksini bərpa edirik
             for (const file of files) {
               const relativePath = path.relative(distPath, file).replace(/\\/g, '/');
-              const ipfsPath = relativePath;
+              const ipfsPath = `portfolio/${relativePath}`; 
               const content = fs.readFileSync(file);
               const blob = new Blob([content]);
               formData.append('file', blob, ipfsPath);
@@ -109,7 +98,7 @@ jobs:
 
             if (!response.ok) {
               const errBody = await response.text();
-              console.error(`Error uploading to Pinata: ${response.status} ${response.statusText}`);
+              console.error(`Error: ${response.status}`);
               console.error('Response:', errBody);
               process.exit(1);
             }
@@ -118,16 +107,11 @@ jobs:
             console.log('\n==================================================');
             console.log('Successfully deployed to IPFS via Pinata!');
             console.log(`IPFS CID: ${data.IpfsHash}`);
-            console.log(`Pin Name: ${pinName}`);
-            console.log(`Pin Size: ${data.PinSize} bytes`);
-            console.log('==================================================');
-            console.log(`\nView Gateway Link: https://gateway.pinata.cloud/ipfs/${data.IpfsHash}`);
-            console.log(`View IPFS Link: ipfs://${data.IpfsHash}`);
             console.log('==================================================\n');
           }
 
           run().catch(err => {
-            console.error('Unhandled deployment error:', err);
+            console.error('Unhandled error:', err);
             process.exit(1);
           });
           EOF
