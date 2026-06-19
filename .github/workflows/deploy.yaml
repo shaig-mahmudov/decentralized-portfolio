@@ -24,10 +24,11 @@ jobs:
         npm ci
         npm run build
 
-    - name: Pin to Pinata (IPFS)
-      uses: AquilX/pinata-action@v1.0.1
+    - name: Upload to Pinata via API
+      uses: aave/pinata-action@v1.1
       with:
-        pinata-api-key: ${{ secrets.PINATA_API_KEY }}
-        pinata-secret-api-key: ${{ secrets.PINATA_SECRET_API_KEY }}
-        pin-name: 'My-Decentralized-Portfolio'
-        path: './dist'
+        PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }}
+        PINATA_SECRET_KEY: ${{ secrets.PINATA_SECRET_API_KEY }}
+        PIN_ALIAS: 'My-Decentralized-Portfolio'
+        BUILD_LOCATION: './dist'
+        CID_VERSION: 1

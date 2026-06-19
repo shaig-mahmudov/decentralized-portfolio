@@ -1,74 +1,59 @@
-# Decentralized Portfolio
+# Decentralized Developer Portfolio
 
-A premium, state-of-the-art developer portfolio website custom-built for **Shaig Mahmudov**. The frontend features a luxury dark-gray and gold design system with ambient glows, scroll telemetry, and an interactive backend load testing simulator. Optimized for distributed networks and fully prepared for deployment on **IPFS (Fleek / Pinata)**.
+A responsive developer portfolio website custom-built for Shaig Mahmudov. The frontend features a dark-gray and gold design system with ambient glows, scroll telemetry, and an interactive backend load testing simulator. It is optimized for distributed networks and prepared for deployment on IPFS.
 
----
+## Project Structure and Architecture
 
-## Design System & Aesthetic
-- **Ambient Lighting**: Fixed radial gold glows and cursor-reactive mouse glow tracking to create a premium visual experience.
-- **Typography**: Editorial heading typography using *Cinzel* paired with *Outfit* for modern, clean body text.
-- **Glassmorphic Layout**: Frosted glass panels with glowing gold border transitions on hover states.
-- **Visual telemetry**: Circular profile picture frames with nested gold gradient borders.
+The application is structured as a single-page React web application built with Vite and TypeScript.
 
----
-
-## Key Features
-
-### 1. Interactive Load Test Simulator
-Inspired by backend systems resilience projects like `wreckr` and `autoreq`, the simulator features a control console to:
-- Select endpoint destinations and slide request rates (RPS).
-- Inject traffic spikes (2.5x load multiplier) and force rate limits (HTTP 429).
-- View live performance charts (plotted using Recharts) mapping request latency and success rate.
-- Scroll through a live-running console logger outputting system telemetry data.
-
-### 2. Featured Projects Grid
-Cards detailing top GitHub repositories (`rivet-api`, `wreckr`, `autoreq`, `betelgeuse-core`, `orion-platform`, `m42-infra`), complete with:
-- Live language statistics and color badges.
-- Star counts and direct source repository links.
-- Organization labels highlighting contributions to **M42 Labs**.
-
-### 3. Integrated Resume and Contact Portal
-- Floating input fields with dynamic submit response states.
-- Custom connections to GitHub and verified LinkedIn posts.
-- Direct CV downloading served directly from IPFS static assets.
-
----
+- **Hero Section**: Introduces the developer with an animated typing terminal highlighting core engineering roles.
+- **About Section**: Presents developer background details, learning focuses, and links to the resume document.
+- **Technical Arsenal**: Displays skills categorized by domain (core backend, persistence, security, databases, devops, and additional frameworks).
+- **Projects Showcase**: Dynamically lists key repositories including rivet-api, wreckr, autoreq, betelgeuse-core, orion-platform, and m42-infra.
+- **Backend Load Simulator**: An interactive environment simulating HTTP requests, success rates, and latencies on a live telemetry graph, mimicking backend testing concepts.
+- **Contact Portal**: Provides a messaging form and direct integration links with social media.
 
 ## Technology Stack
-- **Core Framework**: React (Vite & TypeScript)
-- **Styling**: Tailwind CSS v4 (native stylesheet compilation)
-- **Telemetry Graph**: Recharts (fully responsive SVG canvas charts)
-- **Vector Icons**: Lucide React
-- **CI/CD Deployment**: GitHub Actions & IPFS Pinata Pinning
 
----
+- **Core**: React 18, TypeScript, Vite
+- **Styling**: Tailwind CSS v4
+- **Charts**: Recharts
+- **Icons**: Lucide React
+- **Deployment**: GitHub Actions & IPFS Pinata Pinning
 
-## Local Development Setup
+## Local Development
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/shaig-mahmudov/decentralized-portfolio.git
-cd decentralized-portfolio
-```
+### Prerequisites
 
-### 2. Install dependencies
-```bash
-npm install
-```
+Ensure you have Node.js (version 20 or higher) and npm installed.
 
-### 3. Run development server
-```bash
-npm run dev
-```
+### Installation
 
-### 4. Build for production (compiling static files for IPFS deployment)
-```bash
-npm run build
-```
-The compiled output will be generated inside the `dist/` directory.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/shaig-mahmudov/decentralized-portfolio.git
+   cd decentralized-portfolio
+   ```
 
----
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## CI/CD & IPFS Deployment
+3. Start the local development server:
+   ```bash
+   npm run dev
+   ```
 
-This repository includes a GitHub Actions CI/CD workflow to compile the application and pin the static output to **IPFS via Pinata** on every push to the `main` branch.
+4. Build the static assets for production:
+   ```bash
+   npm run build
+   ```
+   The compiled assets will be output to the `dist` directory.
+
+## CI/CD Pipeline
+
+The project includes an automated deployment workflow configured in GitHub Actions. Upon a push to the main branch, the pipeline:
+1. Checks out the repository code.
+2. Installs the npm packages and builds the production bundle.
+3. Pins the compiled static directory to IPFS via the Pinata API.
