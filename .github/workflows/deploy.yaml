@@ -25,10 +25,16 @@ jobs:
         npm run build
 
     - name: Upload to Pinata via API
-      uses: aave/pinata-action@v1.1
-      with:
-        PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }}
-        PINATA_SECRET_KEY: ${{ secrets.PINATA_SECRET_API_KEY }}
-        PIN_ALIAS: 'My-Decentralized-Portfolio'
-        BUILD_LOCATION: './dist'
-        CID_VERSION: 1
+      run: |
+        IMAGE_TAG="portfolio-$(date +%s)"
+        TARGET_PATH="./dist" 
+        tar -czf site.tar.gz -C "$TARGET_PATH" .
+
+        RESPONSE=$(curl --request POST \
+          --url https://api.pinata.cloud/pinning/pinFileToIPFS \
+          --header "pinata_api_key: ${{ secrets.PINATA_API_KEY }}" \
+          --header "pinata_secret_api_key: ${{ secrets.PINATA_SECRET_API_KEY }}" \
+          --form "file=@site.tar.gz" \
+          --form "pinataMetadata={\"name\": \"$IMAGE_TAG\"}")
+        
+        echo "Pinata Response: $RESPONSE"
