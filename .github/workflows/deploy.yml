@@ -31,7 +31,7 @@ jobs:
           PINATA_SECRET_API_KEY: ${{ secrets.PINATA_SECRET_API_KEY }}
           PIN_NAME: 'Decentralized-Portfolio-${{ github.sha }}'
         run: |
-          cat << 'EOF' > pinata-deploy.js
+          cat << 'EOF' > pinata-deploy.cjs
           const fs = require('fs');
           const path = require('path');
 
@@ -131,4 +131,4 @@ jobs:
             process.exit(1);
           });
           EOF
-          node pinata-deploy.js
+          node pinata-deploy.cjs
